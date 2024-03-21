@@ -48,9 +48,9 @@ else ()
 endif()
 
 include_directories(
-    E:/kSource/pythonx/cppx/cppx/openssl-1.1.1w/include
-    E:/kSource/pythonx/note/infai/infai/protobuf_z64/include
-    E:/kSource/pythonx/cppx/cppx/openssl-1.1.1w/zlib-1.3
+    ../protobuf_z64/include
+    ../../cppx/cppx/openssl-1.1.1w/include
+    ../../cppx/cppx/openssl-1.1.1w/zlib-1.3
 	#${OPENSSL_INCLUDE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${Protobuf_INCLUDE_DIR}
