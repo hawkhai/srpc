@@ -18,6 +18,9 @@ struct Quantile
 {
 	Quantile(double q, double err)
 	{
+		if (q == 1.0) { // Ç±ÔÚ³ı 0 ´íÎó¡£
+			q = 0.999999;
+		}
 		quantile = q;
 		error = err;
 		u = 2.0 * err / (1.0 - q);
