@@ -17,10 +17,10 @@
 #ifndef __RPC_DEFINE_H__
 #define __RPC_DEFINE_H__
 
-#if __cplusplus < 201100
-#error CPLUSPLUS VERSION required at least C++11. Please use "-std=c++11".
-#include <C++11_REQUIRED>
-#endif
+//#if __cplusplus < 201100
+//#error CPLUSPLUS VERSION required at least C++11. Please use "-std=c++11".
+//#include <C++11_REQUIRED>
+//#endif
 
 #include "rpc_server.h"
 #include "rpc_client.h"

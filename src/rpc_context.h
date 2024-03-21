@@ -101,7 +101,8 @@ public:
 	// in JSON output. For example, an int32 field set to 0 will be omitted.
 	// Set this flag to true will override the default behavior and print
 	// primitive fields regardless of their values.
-	virtual void set_json_always_print_primitive_fields(bool flag) = 0;
+	virtual void set_json_always_print_fields_with_no_presence(bool flag) = 0;
+	virtual void set_json_unquote_int64_if_possible(bool flag) = 0;
 
 public:
 	virtual ~RPCContext() { }
