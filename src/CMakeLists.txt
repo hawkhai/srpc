@@ -48,9 +48,9 @@ else ()
 endif()
 
 include_directories(
-    ../protobuf_z64/include
-    ../../cppx/cppx/openssl-1.1.1w/include
-    ../../cppx/cppx/openssl-1.1.1w/zlib-1.3
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../protobuf_z64/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../cppx/cppx/openssl-1.1.1w/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../cppx/cppx/openssl-1.1.1w/zlib-1.3
 	#${OPENSSL_INCLUDE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${Protobuf_INCLUDE_DIR}
