@@ -465,7 +465,8 @@ int SRPCMessage::serialize(const ProtobufIDLMessage *pb_msg)
 		options.add_whitespace = this->get_json_add_whitespace();
 		options.always_print_enums_as_ints = this->get_json_enums_as_ints();
 		options.preserve_proto_field_names = this->get_json_preserve_names();
-		options.always_print_primitive_fields = this->get_json_print_primitive();
+		options.always_print_fields_with_no_presence = this->get_json_print_no_presence();
+		options.unquote_int64_if_possible = this->get_json_unquote_int64();
 
 		ret = BinaryToJsonStream(resolver, GetTypeUrl(pb_msg), &input_stream,
 								 &output_stream, options).ok() ? 0 : -1;

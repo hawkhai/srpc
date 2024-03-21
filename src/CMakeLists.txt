@@ -10,7 +10,7 @@ if (NOT "$ENV{CPLUS_INCLUDE_PATH}" STREQUAL "")
 	set(CMAKE_SYSTEM_INCLUDE_PATH ${INCLUDE_PATH};${CMAKE_SYSTEM_INCLUDE_PATH})
 endif ()
 
-find_package(OpenSSL REQUIRED)
+#find_package(OpenSSL REQUIRED)
 
 set(protobuf_MODULE_COMPATIBLE ON CACHE BOOL "")
 if (WIN32)
@@ -48,7 +48,10 @@ else ()
 endif()
 
 include_directories(
-	${OPENSSL_INCLUDE_DIR}
+    E:/kSource/pythonx/cppx/cppx/openssl-1.1.1w/include
+    E:/kSource/pythonx/note/infai/infai/protobuf_z64/include
+    E:/kSource/pythonx/cppx/cppx/openssl-1.1.1w/zlib-1.3
+	#${OPENSSL_INCLUDE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${Protobuf_INCLUDE_DIR}
 	${WORKFLOW_INCLUDE_DIR}
@@ -119,7 +122,7 @@ else ()
 	set(STATIC_LIB_NAME ${PROJECT_NAME}-static)
 	set(SHARED_LIB_NAME ${PROJECT_NAME}-shared)
 	get_filename_component(Protobuf_LIB_DIR ${Protobuf_LIBRARY} DIRECTORY)
-	link_directories(${OPENSSL_LINK_DIR} ${WORKFLOW_LIB_DIR} ${Protobuf_LIB_DIR})
+	link_directories(${WORKFLOW_LIB_DIR} ${Protobuf_LIB_DIR}) # ${OPENSSL_LINK_DIR}
 
 	add_library(
 		${STATIC_LIB_NAME} STATIC
@@ -145,8 +148,8 @@ else ()
 
 	if (APPLE)
 		target_link_libraries(${SHARED_LIB_NAME}
-							  OpenSSL::SSL
-							  OpenSSL::Crypto
+							  #OpenSSL::SSL
+							  #OpenSSL::Crypto
 							  pthread
 							  ${Protobuf_LIBRARY}
 							  workflow

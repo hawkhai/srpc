@@ -106,8 +106,10 @@ public:
 	virtual bool get_json_enums_as_ints() const;
 	virtual void set_json_preserve_names(bool on);
 	virtual bool get_json_preserve_names() const;
-	virtual void set_json_print_primitive(bool on);
-	virtual bool get_json_print_primitive() const;
+	virtual void set_json_print_no_presence(bool on);
+	virtual bool get_json_print_no_presence() const;
+	virtual void set_json_unquote_int64(bool on);
+	virtual bool get_json_unquote_int64() const;
 
 public:
 	//pb
@@ -159,14 +161,14 @@ inline bool RPCMessage::get_json_add_whitespace() const
 inline void RPCMessage::set_json_enums_as_ints(bool on)
 {
 	if (on)
-		this->flags |= SRPC_JSON_OPTION_ENUM_AS_INITS;
+		this->flags |= SRPC_JSON_OPTION_ENUMS_AS_INTS;
 	else
-		this->flags &= ~SRPC_JSON_OPTION_ENUM_AS_INITS;
+		this->flags &= ~SRPC_JSON_OPTION_ENUMS_AS_INTS;
 }
 
 inline bool RPCMessage::get_json_enums_as_ints() const
 {
-	return this->flags & SRPC_JSON_OPTION_ENUM_AS_INITS;
+	return this->flags & SRPC_JSON_OPTION_ENUMS_AS_INTS;
 }
 
 inline void RPCMessage::set_json_preserve_names(bool on)
@@ -182,17 +184,30 @@ inline bool RPCMessage::get_json_preserve_names() const
 	return this->flags & SRPC_JSON_OPTION_PRESERVE_NAMES;
 }
 
-inline void RPCMessage::set_json_print_primitive(bool on)
+inline void RPCMessage::set_json_print_no_presence(bool on)
 {
 	if (on)
-		this->flags |= SRPC_JSON_OPTION_PRINT_PRIMITIVE;
+		this->flags |= SRPC_JSON_OPTION_PRINT_NO_PRESENCE;
 	else
-		this->flags &= ~SRPC_JSON_OPTION_PRINT_PRIMITIVE;
+		this->flags &= ~SRPC_JSON_OPTION_PRINT_NO_PRESENCE;
 }
 
-inline bool RPCMessage::get_json_print_primitive() const
+inline bool RPCMessage::get_json_print_no_presence() const
 {
-	return this->flags & SRPC_JSON_OPTION_PRINT_PRIMITIVE;
+	return this->flags & SRPC_JSON_OPTION_PRINT_NO_PRESENCE;
+}
+
+inline void RPCMessage::set_json_unquote_int64(bool on)
+{
+	if (on)
+		this->flags |= SRPC_JSON_OPTION_UNQUOTE_INT64;
+	else
+		this->flags &= ~SRPC_JSON_OPTION_UNQUOTE_INT64;
+}
+
+inline bool RPCMessage::get_json_unquote_int64() const
+{
+	return this->flags & SRPC_JSON_OPTION_UNQUOTE_INT64;
 }
 
 } // namespace srpc
